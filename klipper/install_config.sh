@@ -4,6 +4,7 @@
 echo "" >> ~/printer_data/config/printer.cfg
 echo "# Sovol SV01" >> ~/printer_data/config/printer.cfg
 echo "[include main.cfg]" >> ~/printer_data/config/printer.cfg
+echo "# [include resonance.cfg]" >> ~/printer_data/config/printer.cfg
 
 # links files
 ln -sf ~/Sovol-SV01/klipper/main.cfg ~/printer_data/config/main.cfg
