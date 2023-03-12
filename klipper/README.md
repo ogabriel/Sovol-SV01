@@ -1,3 +1,0 @@
-# klipper
-
-Klipper config
