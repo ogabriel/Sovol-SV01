@@ -1,10 +1,12 @@
 #!/bin/bash
 
-# show messages
-echo "" >> ~/printer_data/config/printer.cfg
-echo "# Sovol SV01" >> ~/printer_data/config/printer.cfg
-echo "[include sv01/main.cfg]" >> ~/printer_data/config/printer.cfg
-echo "# [include sv01/resonance.cfg]" >> ~/printer_data/config/printer.cfg
+if ! grep -xq "[include sv01/main.cfg]" ~/printer_data/config/printer.cfg; then
+	echo "[include sv01/main.cfg]" >> ~/printer_data/config/printer.cfg
+fi
+
+if ! grep -xq "# [include sv01/resonance.cfg]" ~/printer_data/config/printer.cfg || ! grep -xq "[include sv01/resonance.cfg]" ~/printer_data/config/printer.cfg; then
+	echo "# [include sv01/resonance.cfg]" >> ~/printer_data/config/printer.cfg
+fi
 
 # links files
 ln -sf ~/Sovol-SV01/klipper_config ~/printer_data/config/sv01
