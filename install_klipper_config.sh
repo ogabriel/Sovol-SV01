@@ -1,11 +1,11 @@
 #!/bin/bash
 
-echo "Adding link to printer.cfg"
-
+echo "Adding import main.cfg to printer.cfg"
 if ! grep -xF "[include sv01/main.cfg]" ~/printer_data/config/printer.cfg; then
 	echo "[include sv01/main.cfg]" >> ~/printer_data/config/printer.cfg
 fi
 
+echo "Adding import resonance.cfg to printer.cfg"
 if ! grep -xF "# [include sv01/resonance.cfg]" ~/printer_data/config/printer.cfg && ! grep -xq "[include sv01/resonance.cfg]" ~/printer_data/config/printer.cfg; then
 	echo "# [include sv01/resonance.cfg]" >> ~/printer_data/config/printer.cfg
 fi
