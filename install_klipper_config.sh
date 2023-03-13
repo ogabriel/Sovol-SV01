@@ -17,3 +17,13 @@ echo "Add crontab to Sovol config"
 if ! crontab -l | grep -F "* * * * * cd /home/pi/Sovol-SV01; git pull"; then
 	(crontab -l 2>/dev/null; echo "* * * * * cd /home/pi/Sovol-SV01; git pull") | crontab -
 fi
+
+echo "Download KAMP"
+cd
+git clone https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging.git
+ln -s ~/Klipper-Adaptive-Meshing-Purging/Configuration printer_data/config/KAMP
+
+echo "Import KAMP"
+if ! grep -xF "[include KAMP/*cfg]" ~/printer_data/config/printer.cfg; then
+	echo "[include KAMP/*cfg]" >> ~/printer_data/config/printer.cfg
+fi
