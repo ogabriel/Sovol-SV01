@@ -1,3 +1,5 @@
+# https://www.klipper3d.org/Rotation_Distance.html
+
 require 'bigdecimal/util'
 
 initial_mark_distance = BigDecimal("70.01")
