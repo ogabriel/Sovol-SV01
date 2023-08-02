@@ -11,6 +11,9 @@ if ! grep -xF "# [include sv01/resonance.cfg]" ~/printer_data/config/printer.cfg
 fi
 
 echo "Adding link to sv01 other files"
+if [ -d ~/printer_data/config/sv01 ]; then
+    mv ~/printer_data/config/sv01 ~/old_sv01
+fi
 ln -sf ~/Sovol-SV01/klipper_config ~/printer_data/config/sv01
 
 echo "Add crontab to Sovol config"
