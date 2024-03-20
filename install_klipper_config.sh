@@ -25,9 +25,13 @@ fi
 echo "Download KAMP"
 cd
 git clone https://github.com/kyleisah/Klipper-Adaptive-Meshing-Purging.git
+if [ -d ~/printer_data/config/KAMP ]; then
+    rm ~/printer_data/config/KAMP
+fi
 ln -s ~/Klipper-Adaptive-Meshing-Purging/Configuration printer_data/config/KAMP
+cp ~/Klipper-Adaptive-Meshing-Purging/Configuration/KAMP_Settings.cfg ~/printer_data/config/KAMP_Settings.cfg
 
 echo "Import KAMP"
-if ! grep -xF "[include KAMP/*cfg]" ~/printer_data/config/printer.cfg; then
-	echo "[include KAMP/*cfg]" >> ~/printer_data/config/printer.cfg
+if ! grep -xF "[include KAMP_Settings.cfg]" ~/printer_data/config/printer.cfg; then
+	echo "[include KAMP_Settings.cfg]" >> ~/printer_data/config/printer.cfg
 fi
