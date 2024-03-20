@@ -14,6 +14,7 @@ echo "Adding link to sv01 other files"
 if [ -d ~/printer_data/config/sv01 ]; then
     mv ~/printer_data/config/sv01 ~/old_sv01
 fi
+
 ln -sf ~/Sovol-SV01/klipper_config ~/printer_data/config/sv01
 
 echo "Add crontab to Sovol config"
